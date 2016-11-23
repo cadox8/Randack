@@ -1,0 +1,8 @@
+name: Randack
+main: com.gmail.cadox8.randack.Randack
+version: 0.3.2
+author: cadox8
+
+commands:
+   magic:
+    description: Main Command
