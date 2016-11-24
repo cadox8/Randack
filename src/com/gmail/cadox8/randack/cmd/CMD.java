@@ -6,10 +6,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import com.gmail.cadox8.randack.cmd.list.NormalCommand;
+import com.gmail.cadox8.randack.cmd.list.admin.TestSpellCommand;
 
 public class CMD implements CommandExecutor {
 
 	private NormalCommand normal = new NormalCommand();
+
+	private TestSpellCommand testSpell = new TestSpellCommand();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
@@ -24,6 +27,12 @@ public class CMD implements CommandExecutor {
 		if(cmd.getName().equalsIgnoreCase("randack")){
 			if(args.length == 0){
 				normal.normalCommand(p, args);
+			}
+
+			if(args.length == 2){
+				if(args[0].equalsIgnoreCase("spell")){
+					testSpell.testSpell(p, args);
+				}
 			}
 		}
 		return false;
