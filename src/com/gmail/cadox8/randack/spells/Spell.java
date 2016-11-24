@@ -39,6 +39,10 @@ public abstract class Spell {
 		return manaCost;
 	}
 
+	public static void setPlayer(Player p){
+		Spell.p = p;
+	}
+
 	public static Spell getSpellByName(String name){
 		for(Spell s : getAllSpells()){
 			if(s.getName().toLowerCase().equalsIgnoreCase(name)){
@@ -52,7 +56,7 @@ public abstract class Spell {
 		List<Spell> spells = new ArrayList<Spell>();
 
 		spells.add(new Lumos());
-		spells.add(new Appearance(p));
+		spells.add(new Appearance());
 
 		return spells;
 	}

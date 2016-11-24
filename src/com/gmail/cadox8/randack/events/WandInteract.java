@@ -44,6 +44,8 @@ public class WandInteract implements Listener {
 					if(Long.parseLong(ChatColor.stripColor(i.getItemMeta().getLore().get(3))) == Mage.getMageID(p)){
 						Spell s = Randack.getRandackAPI().getSpellManager().getPlayerSpell(p);
 
+						Spell.setPlayer(p);
+
 						s.spellEffects();
 					}
 				}

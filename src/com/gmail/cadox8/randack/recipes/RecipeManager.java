@@ -35,6 +35,7 @@ public class RecipeManager {
 		}
 		return false;
 	}
+	//
 
 	public Spell getCraftedSpell(){
 		return craftedSpell;

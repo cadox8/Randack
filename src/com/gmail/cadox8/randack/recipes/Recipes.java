@@ -25,7 +25,7 @@ public class Recipes {
 
 		ShapedRecipe ringRecipe = new ShapedRecipe(ring);
 
-		ringRecipe.shape("BBB", "BAB", "BBB");
+		ringRecipe.shape("BBB", "BCB", "BBB");
 
 		ringRecipe.setIngredient('B', Material.GOLD_NUGGET);
 		ringRecipe.setIngredient('C', Material.FEATHER);

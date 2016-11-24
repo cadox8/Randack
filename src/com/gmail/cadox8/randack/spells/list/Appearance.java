@@ -5,7 +5,6 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import com.gmail.cadox8.randack.Randack;
@@ -17,10 +16,8 @@ import com.gmail.cadox8.randack.utils.Sounds;
 
 public class Appearance extends Spell {
 
-	public Appearance(Player p){
+	public Appearance(){
 		super(1, "Appearance", 50);
-
-		Spell.p = p;
 	}
 
 	@Override
@@ -55,15 +52,16 @@ public class Appearance extends Spell {
 		double x = p.getLocation().getX() + NumberUtils.randInt(100);
 		double y = p.getLocation().getY();
 		double z = p.getLocation().getZ() + NumberUtils.randInt(100);
+
 		Location l = new Location(p.getWorld(), x, y, z);
 
-		Maths.tornadoEffect(p, ParticleEffect.PORTAL, false);
+		Maths.tornadoEffect(p.getLocation(), ParticleEffect.PORTAL, false);
 
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Randack.getRandack(), new Runnable(){
 			@Override
 			public void run(){
+				Maths.stopRotation(p.getLocation());
 				p.teleport(l);
-				Maths.stopRotation(p);
 				p.playSound(p.getLocation(), Sounds.ENDERMAN_TELEPORT.bukkitSound(), 10f, 10f);
 			}
 		}, 40L);

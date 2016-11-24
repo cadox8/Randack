@@ -59,6 +59,8 @@ public class MagicTable implements Listener {
 				}
 
 				p.playSound(e.getBlock().getLocation(), Sounds.AMBIENCE_THUNDER.bukkitSound(), 10f, 1f);
+
+				return;
 			}
 		}
 	}
@@ -104,7 +106,7 @@ public class MagicTable implements Listener {
 				p.playSound(l, Sounds.VILLAGER_YES.bukkitSound(), 10f, 1f);
 				Maths.spiraleEffect(l, ParticleEffect.REDSTONE, true);
 
-				p.sendMessage(Messages.learnedSpell);
+				p.sendMessage(Messages.learnedSpell + Randack.getRandackAPI().getRecipeManager().getCraftedSpell().getName());
 
 				Bukkit.getScheduler().scheduleSyncDelayedTask(Randack.getRandack(), new Runnable(){
 					@Override
@@ -112,6 +114,7 @@ public class MagicTable implements Listener {
 						Maths.stopRotation(l);
 					}
 				}, 40L);
+				return;
 			}
 
 			//Wand
@@ -124,9 +127,11 @@ public class MagicTable implements Listener {
 				ItemStack item = new ItemsMaker().withMaterial(Material.STICK).withName("Wand").withLore(Randack.getRandackAPI().getWandManager().getWandLore(w, mage)).build();
 
 				p.playSound(l, Sounds.ENDERDRAGON_GROWL.bukkitSound(), 10f, 1f);
-				ParticleEffect.EXPLOSION_NORMAL.display((float) l.getX(), (float) l.getY(), (float) l.getZ(), 3, 10, l, 5);
+				Maths.spiraleEffect(l, ParticleEffect.REDSTONE, true);
 
 				l.getWorld().dropItem(l.add(0, 1, 0), item);
+
+				return;
 			}
 		}
 	}

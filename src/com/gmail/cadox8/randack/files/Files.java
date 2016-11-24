@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class Files {
 
-	private File filePlayers = new File("plugins/Magic/players.yml");
+	private File filePlayers = new File("plugins/Randack/players.yml");
 	private YamlConfiguration players = YamlConfiguration.loadConfiguration(filePlayers);
 
 	public void setupFiles(){
